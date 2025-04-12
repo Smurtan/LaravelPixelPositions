@@ -32,7 +32,7 @@
             <x-section-header>Recent Jobs</x-section-header>
 
             <div class="mt-6 space-x-1 space-y-6">
-                @foreach($tags as $tag)
+                @foreach($jobs as $job)
                     <x-job-card-wide :$job />
                 @endforeach
             </div>

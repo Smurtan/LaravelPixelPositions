@@ -28,8 +28,15 @@
         </div>
 
         @auth
-            <div class="">
+            <div class="space-x-6 font-bold flex">
                 <a href="/jobs/create">post a job</a>
+
+                <form method="POST" action="/login">
+                    @csrf
+                    @method('DELETE')
+
+                    <button>Log Out</button>
+                </form>
             </div>
         @endauth
         @guest
