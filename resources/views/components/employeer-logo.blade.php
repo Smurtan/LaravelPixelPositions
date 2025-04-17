@@ -1,3 +1,3 @@
-@props(['width' => 90])
+@props(['employer', 'width' => 90])
 
-<img src="https://loremflickr.com/{{ $width }}/{{ $width }}?random={{ random_int(1, 999999) }}" alt="" class="rounded-xl">
+<img src="{{ asset($employer->logo) }}" alt="" class="rounded-xl" width="{{ $width }}" height="{{ $width }}">
