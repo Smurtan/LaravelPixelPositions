@@ -22,55 +22,11 @@ it('can be created with valid attributes', function () {
         ->and($job->employer->is($employer))->toBeTrue();
 });
 
-it('requires a title', function () {
+it('requires', function ($data) {
     $this->expectException(Illuminate\Database\QueryException::class);
 
-    \App\Models\Job::factory()->create([
-        'title' => null
-    ]);
-});
-it('requires a salary', function () {
-    $this->expectException(Illuminate\Database\QueryException::class);
-
-    \App\Models\Job::factory()->create([
-        'salary' => null
-    ]);
-});
-it('requires a location', function () {
-    $this->expectException(Illuminate\Database\QueryException::class);
-
-    \App\Models\Job::factory()->create([
-        'location' => null
-    ]);
-});
-it('requires a url', function () {
-    $this->expectException(Illuminate\Database\QueryException::class);
-
-    \App\Models\Job::factory()->create([
-        'url' => null
-    ]);
-});
-it('requires a belong to employer', function () {
-    $this->expectException(Illuminate\Database\QueryException::class);
-
-    \App\Models\Job::factory()->create([
-        'employer_id' => null
-    ]);
-});
-it('requires a belong to schedule', function () {
-    $this->expectException(Illuminate\Database\QueryException::class);
-
-    \App\Models\Job::factory()->create([
-        'schedule' => null
-    ]);
-});
-it('requires a belong to featured', function () {
-    $this->expectException(Illuminate\Database\QueryException::class);
-
-    \App\Models\Job::factory()->create([
-        'featured' => null
-    ]);
-});
+    \App\Models\Job::factory()->create($data);
+})->with('require job attributes');
 
 test('it belongs to an employer', function () {
     // Arrange

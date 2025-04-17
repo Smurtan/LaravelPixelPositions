@@ -7,7 +7,7 @@ use App\Http\Controllers\SessionController;
 use App\Http\Controllers\TagController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [JobController::class, 'index']);
+Route::get('/', [JobController::class, 'index'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/jobs/create', [JobController::class, 'create']);
